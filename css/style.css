@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'digital-clock-font';
+    src: url(/fonts/digital-7.ttf);
+}
+
+body {
+    text-align: center;
+    /* background-color: #404B69; */
+    font-family: monospace;
+    background-image: url(https://images.unsplash.com/photo-1625958936686-a9343dc35b5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+
+}
+
+.highS {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    height: 70px;
+    width: 200px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.best-time {
+    color: white;
+    position: relative;
+    top: 10px;
+    font-size: large;
+    font-family: 'digital-clock-font';
+}
+
+td:hover {
+    border-color: blue
+}
+
+
+h1 {
+
+    margin-top: 70px;
+    color: white
+}
+
+h5 {
+    margin-top: 5px;
+}
+
+.level-options {
+    margin: 30px;
+}
+
+table {
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 100px;
+}
+
+.main-board {
+    margin: auto;
+    margin-top: 20px;
+}
+
+td {
+    border: 1px solid white;
+    background-color: #999999;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.emoji {
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.opened {
+    background-color: lightgray;
+}
+
+.stop-watch {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: black;
+    height: 50px;
+    width: 90px;
+    color: red;
+    border-radius: 10px;
+}
+
+.stop-watch span {
+    font-family: 'digital-clock-font';
+    letter-spacing: 2px;
+    display: block;
+    position: relative;
+    top: 12px;
+}
+
+.info-area {
+    position: absolute;
+    left: 230px;
+    top: 320px;
+    font-size: 20px;
+    /* color: white; */
+    height: 200px;
+    width: 170px;
+    background-color: #AACDBE;
+    border-radius: 20%;
+    padding: 20px;
+    letter-spacing: 8px;
+}
+
+tbody {
+    width: 300px;
+    height: 200px;
+}
+
+.info-area .hints {
+    margin-top: 100px;
+    position: relative;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.info-area .lives {
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.hinted {
+    background-color: lightblue;
+}
+
+.safe-click-btn {
+    height: 40px;
+    width: 80px;
+    border: none;
+    border-radius: 20%;
+    background-color: #F4F7C5;
+    position: absolute;
+    display: block;
+    top: 120px;
+    left: 45px;
+    cursor: pointer;
+}
+
+.safe-click-btn:hover {
+    background-color: #FCF8E8;
+    color: grey;
+}
+
+.safe {
+    background-color: lightsalmon;
+}
+
+.level-btn {
+    cursor: pointer;
+    border: none;
+    background-color: #F4F7C5;
+    border-radius: 20%;
+    height: 40px;
+    width: 60px;
+    padding: 5px;
+
+}
+
+.level-btn:hover {
+    background-color: #FCF8E8;
+    color: grey;
+}
+
+.level-btn span {
+    font-size: 7px;
+
+}
+
+.level-btn {
+    font-size: 12px;
+    color: #155263;
+    font-weight: bold;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@100&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minesweeper</title>
+</head>
+
+<body onload="setLevel()">
+    <h1>minesweeper</h1>
+    <h5>by Daniel Shaked </h5>
+
+    <div class="highS"> <span class="best-time"></span></div>
+    <button class="level-btn" onclick="setLevel(4)">easy<br><span>(4*4)</span></button>
+    <button class=" level-btn" onclick="setLevel(8)">Med<br><span>(8*8)</span></button>
+    <button class="level-btn" onclick="setLevel(12)">Extreme<br><span>(12*12)</span></button>
+
+    </div>
+    <img title="click to restart" class="emoji" src="img/start.png" alt="" onclick="init()">
+    <div class="stop-watch"><span> 00:00 </span></div>
+    <table>
+        <tbody class=" main-board">
+            <!-- dom Table will Update here! -->
+        </tbody>
+    </table>
+    <div class="info-area">
+        <span class="lives" title="live"></span> <br>
+        <span class="hints" onclick="toggleIshHinted(true)" title="hints"></span>
+        <button onclick="safeClick()" class="safe-click-btn">safe click: <br> <span class="safe-click"></span></button>
+    </div>
+
+
+    <script src="js/utilty.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/view.js"></script>
+</body>
+
+</html>
