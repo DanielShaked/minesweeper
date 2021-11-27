@@ -29,7 +29,7 @@ function init() {
     if (stopWatchInId) clearInterval(stopWatchInId);
     gBoard = buildBoard()
     renderBoard();
-    var gGame = { isOn: true, shownCount: 0, markedCount: 0, secPassed: 0, FlagInUse: 0, isHinted: false, isFirstClicked: false, moves: [] }
+    gGame = { isOn: true, shownCount: 0, markedCount: 0, secPassed: 0, FlagInUse: 0, isHinted: false, isFirstClicked: false, moves: [] }
     gFirstPos = { i: null, j: null }
     gSafeClicks = 3;
     gHints = ['💡', '💡', '💡'];
