@@ -1,5 +1,6 @@
 'use strict'
 
+
 function renderBoard() {
     var strHtml = '';
     for (var i = 0; i < gBoard.length; i++) {
@@ -55,19 +56,47 @@ function revealMines() {
     }
 }
 
+
+function hideNegs(posI, posJ) {
+    for (var i = posI - 1; i <= posI + 1; i++) {
+        if (i < 0 || i >= gBoard.length) continue;
+        for (var j = posJ - 1; j <= posJ + 1; j++) {
+            if (j < 0 || j >= gBoard[0].length) continue;
+            var cell = gBoard[i][j];
+            if (!cell.isShown) continue;
+            if (cell.isMarked || cell.isMine) continue;
+            var elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`);
+            if (!elCell.classList.contains('opened')) continue
+            renderCell({ i, j }, EMPTY);
+            toggleCls({ i, j }, 'opened', false)
+            toggleCls({ i, j }, 'number', false);
+            if (!cell.minesAroundCount) {
+                hideNegs(i, j, false)
+            }
+            cell.isShown = false;
+        }
+    }
+}
+
+
 function revealNegs(posI, posJ) {
     for (var i = posI - 1; i <= posI + 1; i++) {
         if (i < 0 || i >= gBoard.length) continue;
-
         for (var j = posJ - 1; j <= posJ + 1; j++) {
             if (j < 0 || j >= gBoard[0].length) continue;
-            // if (j === posJ && i === posI) continue;
             var cell = gBoard[i][j];
-            if (cell.isMarked) continue;
+            if (cell.isShown) continue;
+            if (cell.isMarked || cell.isMine) continue;
             var elCell = document.querySelector(`[data-i="${i}"][data-j="${j}"]`);
+
+            if (elCell.classList.contains('number')) continue;
             elCell.classList.add('opened');
+            if (cell.minesAroundCount) elCell.classList.add('number', `n${cell.minesAroundCount}`)
             elCell.innerText = (gBoard[i][j].minesAroundCount) ? gBoard[i][j].minesAroundCount : '';
             cell.isShown = true;
+            if (!cell.minesAroundCount) {
+                revealNegs(i, j, true)
+            }
         }
     }
 }
@@ -100,5 +129,15 @@ function showNegsHinted(posI, posJ, isShow) {
 
             }
         }
+    }
+}
+
+
+function toggleCls(location, clsName, isAdd) {
+    var el = document.querySelector(`[data-i="${location.i}"][data-j="${location.j}"]`);
+    if (isAdd) {
+        el.classList.add(clsName);
+    } else {
+        el.classList.remove(clsName);
     }
 }

@@ -1,5 +1,8 @@
 'use strict'
 
+var elModalsNode = document.querySelectorAll('.modal');
+var gElModals = [...elModalsNode]
+
 function buildBoard() {
     var board = [];
     for (var i = 0; i < gLevel.rows; i++) {
@@ -102,6 +105,7 @@ function isShown() {
 }
 
 function updateSafeClick(num) {
+
     var elSafeSpan = document.querySelector('.safe-click');
     elSafeSpan.innerText = (num > 0) ? num : 0;
 }
@@ -121,4 +125,26 @@ function displayStopWatch2() {
         gGame.secPassed = sec / 1000;
         elStopWatch.innerText = (sec / 1000).toFixed(2)
     }, 99)
+}
+
+function magamentModal() {
+    if (gElModals.length === 1) {
+        document.querySelector('.btns').classList.add('border-start');
+        setTimeout(() => {
+            document.querySelector('.btns').classList.remove('border-start');
+        }, 2000);
+    }
+    var elModal = gElModals[0]
+    elModal.style.visibility = 'visible';
+    setTimeout(() => {
+        elModal.style.display = 'none'
+    }, 4000);
+    gElModals.shift();
+}
+
+
+function startTour() {
+    playSound('sounds/start.mp3');
+    document.querySelector('.main-modal').style.visibility = 'hidden';
+    tourGuideId = setInterval(magamentModal, 6300);
 }

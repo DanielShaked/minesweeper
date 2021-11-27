@@ -13,15 +13,17 @@
     <title>minesweeper</title>
 </head>
 
-<body onload="setLevel()">
+<body onload="setLevel()" onkeydown="handleKey(event)">
     <h1>minesweeper</h1>
-    <h5>by Daniel Shaked </h5>
+    <h4>by Daniel Shaked </h4>
 
     <div class="highS"> <span class="best-time"></span></div>
-    <button class="level-btn" onclick="setLevel(4)">easy<br><span>(4*4)</span></button>
-    <button class=" level-btn" onclick="setLevel(8)">Med<br><span>(8*8)</span></button>
-    <button class="level-btn" onclick="setLevel(12)">Extreme<br><span>(12*12)</span></button>
 
+    <div class="btns">
+        <button class="level-btn" onclick="setLevel(4)">easy<br><span>(4*4)</span></button>
+        <button class=" level-btn" onclick="setLevel(8)">Med<br><span>(8*8)</span></button>
+        <button class="level-btn" onclick="setLevel(12)">Extreme<br><span>(12*12)</span></button>
+    </div>
     </div>
     <img title="click to restart" class="emoji" src="img/start.png" alt="" onclick="init()">
     <div class="stop-watch"><span> 00:00 </span></div>
@@ -37,9 +39,53 @@
     </div>
 
 
-    <script src="js/utilty.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/view.js"></script>
+
+
+
+    <!-- modal guide tour -->
+    <div class="main-modal">Welcome To Minesweeper<br>this game created <br>
+        As part of a Coding Academy Boot-camp <br> i see that it the first time here <br> <br> You have no personal
+        record (yet 😉)<br> <br> <b>Let's take a little tour of the game (recommended!)</b> <br> <span>**Please do not
+            start the game while the instructor is running**</span><br><br>
+        <button onclick="startTour()" class="tour-btn">
+            start tour
+        </button>
+    </div>
+    <div class="modal-guide">
+        <div class="modal" style="top: 110px;left: 70px;">Here you can choose the difficult level of the game 👉</div>
+        <div class="modal" style="top: 150px;left: 85px;">Here you can see your current situation (in game, loss, win)👉
+        </div>
+        <div class="modal" style="top:200px;left:130px">Here you can see your current time in the game 👉</div>
+        <div class="modal" style="top:250px;left:130px">Here you can see the amount of your life <br> 👇 </div>
+        <div class="modal" style="top:350px;left:450px">hints: <br>when you
+            press
+            one of the
+            lamps and then a key <br> 👈on the board, the contents of the neighbors <br> will be revealed to you for
+            <b>one second</b>
+        </div>
+
+
+
+
+
+        <div class="modal" style="bottom: -90px;left: 150px;">👆 <br>safe clicks: <br> When you use it <br>
+            you
+            will see in the table a location <br> that is safe (no bombs)</div>
+        <div class="modal" style="bottom: 60px;left:450px;">you can use Undo and Redo by the buttons. <br>
+            It is possible and even <b>recommended</b> to use <br> <b><u> ctrl + z and ctrl + y</u></b> <br> 👇
+        </div>
+        <div class="modal" style="top: 200px;right: 170px;">👆 <br> Here you can see your <br> current record!
+            Do it faster <br> each time 😎
+        </div>
+        <div style="top:200px;left: 500px;" class="modal">👆☝ so... lets <b>start!</b> <br> please choose some Level.
+        </div>
+
+        <button class="undo" onclick="undo()"> <img class="undo-img" src="img/undo.png" alt=""> <br> Undo</button>
+        <button class="redo" onclick="redo()"><img class="redo-img" src="img/redo.png" alt=""> <br> Redo</button>
+
+        <script src="js/utilty.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/view.js"></script>
 </body>
 
 </html>
