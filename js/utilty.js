@@ -143,8 +143,13 @@ function magamentModal() {
 }
 
 
-function startTour() {
+
+
+function startTour(isTour) {
+    //TODO: local storage support(if the user have a record - turn off the guide)
     playSound('sounds/start.mp3');
     document.querySelector('.main-modal').style.visibility = 'hidden';
-    tourGuideId = setInterval(magamentModal, 6300);
+    if (isTour) {
+        tourGuideId = setInterval(magamentModal, 6300);
+    }
 }

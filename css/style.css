@@ -280,13 +280,13 @@ div .modal {
     left: 420px;
 }
 
-.tour-btn {
+.tour-btn, .start-btn {
     cursor: pointer;
     border: none;
     background-color: #155263;
     border-radius: 20%;
-    height: 40px;
-    width: 60px;
+    /* height: 40px;
+    width: 60px; */
     padding: 10px;
     font-size: 10px;
     bottom: 80px;
@@ -308,4 +308,9 @@ div .modal {
 
 .main-modal span {
     font-size: 12px;
+}
+
+.start-btn:hover {
+    background-color: red;
+    color: white;
 }
